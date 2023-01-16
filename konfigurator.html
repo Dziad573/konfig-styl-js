@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Style w JavaScript</title>
+    <link rel="stylesheet" href="styl6.css">
+</head>
+<body>
+    <div id="blok-lewy">
+        <h1>Konfigurator stylu</h1>
+        <p>Podaj kolor tła</p>
+        <input type="button" value="Indigo" id="indigo">
+        <input type="button" value="SteelBlue" id="steel">
+        <input type="button" value="Olive" id="olive">
+        <script>
+
+            var indigo = document.getElementById("indigo");
+            indigo.onclick = function(){
+                var prawy = document.getElementById("blok-prawy");
+                prawy.style.backgroundColor = "indigo";
+            }
+
+            var steel = document.getElementById("steel");
+            steel.onclick = function(){
+                var prawy = document.getElementById("blok-prawy");
+                prawy.style.backgroundColor = "steelblue";
+            }
+
+            var olive = document.getElementById("olive");
+            olive.onclick = function(){
+                var prawy = document.getElementById("blok-prawy");
+                prawy.style.backgroundColor = "olive";
+            }
+
+        </script>
+
+
+        <p>Podaj kolor czcionki</p>
+        <select id="kolorcz" onchange="zmienKolorCzcionki()">
+            <option value="white" id="white">White</option>
+            <option value="tan" id="tan">Tan</option>
+            <option value="bisque" id="bisque">Bisque</option>
+            <option value="plum" id="plum">Plum</option>
+        </select>
+        <p>Podaj rozmiar czcionki w procentach, np. 200%</p>
+        <input type="text" value="100%" id="rozmiar" onchange="zmienRozmiarCzcionki()">
+        <p>Czy rysunek ma mieć ramkę?</p>
+
+        <input type="checkbox" id="ramka" checked onclick="ramka()"> Rysuj ramkę
+
+        <p>Jaki jest typ punktora listy?</p>
+        <input type="radio" name="lista" id="lista1" onclick="typPunktoraListy1()" checked> dysk<br>
+        <input type="radio" name="lista" id="lista2" onclick="typPunktoraListy2()"> kwadrat<br>
+        <input type="radio" name="lista" id="lista3" onclick="typPunktoraListy3()"> okrąg<br>
+    </div>
+    
+
+
+    <div id="blok-prawy">
+        <img src="gibraltar.jpg" alt="półwysep Gibraltar" id="obrazek">
+        <ul id="lista">
+            <li>element 1</li>
+            <li>element 2</li>
+            <li>element 3</li>
+        </ul>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi 
+            ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit 
+            in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur 
+            sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt 
+            mollit anim id est laborum. 
+        </p>
+    </div>
+    
+    <footer id="stopka">
+        Autor: #0000000000000
+    </footer>
+
+        <script>
+            function zmienKolorCzcionki(){
+                var kolorCz = document.getElementById("kolorcz").value;
+                var prawy = document.getElementById("blok-prawy");
+                prawy.style.color = kolorcz;
+            };
+
+            function zmienRozmiarCzcionki(){
+                var rozmiarCz = document.getElementById("rozmiar").value;
+                var prawy = document.getElementById("blok-prawy");
+                prawy.style.fontSize = rozmiarCz;
+            };
+
+            function ramka(){
+                var ramka = document.getElementById("ramka").checked;
+                if(ramka == true ){ // 1 == true
+                    document.getElementById("obrazek").style.border = "1px solid white";
+                }else{
+                    document.getElementById("obrazek").style.border = "none";
+                }
+            };
+
+            function typPunktoraListy1(){
+                document.getElementById("lista").style.listStyle = "disc";
+            };
+            function typPunktoraListy2(){
+                document.getElementById("lista").style.listStyle = "square";
+            };
+            function typPunktoraListy3(){
+                document.getElementById("lista").style.listStyle = "circle";
+            };
+
+        </script>
+</body>
+</html>
